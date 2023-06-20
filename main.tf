@@ -9,14 +9,14 @@ locals {
 data "aws_vpc" "selected" {
   filter {
     name   = "tag:Name"
-    values = var.vpc_name
+    values = [var.vpc_name]
   }
 }
 
 data "aws_subnets" "publicA" {
   filter {
     name   = "vpc-id"
-    values = data.aws_vpc.selected.id
+    values = [data.aws_vpc.selected.id]
   }
 
   filter {
@@ -33,7 +33,7 @@ data "aws_subnets" "publicB" {
 
   filter {
     name   = "vpc-id"
-    values = data.aws_vpc.selected.id
+    values = [data.aws_vpc.selected.id]
   }
 
   filter {
