@@ -15,8 +15,11 @@ data "aws_vpc" "selected" {
 }
 
 data "aws_subnets" "publicA" {
-  vpc_id = data.aws_vpc.selected.id
- 
+  filter {
+    name   = "vpc-id"
+    values = data.aws_vpc.selected.id
+  }
+
   filter {
     name   = "availability-zone"
     values = ["*a"]
@@ -28,7 +31,11 @@ data "aws_subnets" "publicA" {
 }
 
 data "aws_subnets" "publicB" {
-  vpc_id = data.aws_vpc.selected.id
+
+  filter {
+    name   = "vpc-id"
+    values = data.aws_vpc.selected.id
+  }
 
   filter {
     name   = "availability-zone"
@@ -41,6 +48,6 @@ data "aws_subnets" "publicB" {
  
 }
 
-data "aws_default_security_group" "default" {
-  vpc_id = data.aws_vpc.selected.id
-}
+# data "aws_default_security_group" "default" {
+#   vpc_id = data.aws_vpc.selected.id
+# }

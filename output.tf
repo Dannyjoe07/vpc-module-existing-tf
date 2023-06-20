@@ -24,7 +24,7 @@ output "public_subnet_id_az2" {
 }
 
 
-output "default_security_group" {
-  value       = data.aws_default_security_group.default.id
-  description = "Default security group of the VPC"
-}
+# output "default_security_group" {
+#   value       = data.aws_default_security_group.default.id
+#   description = "Default security group of the VPC"
+# }
