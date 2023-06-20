@@ -14,7 +14,7 @@ data "aws_vpc" "selected" {
   }
 }
 
-data "aws_subnet_ids" "publicA" {
+data "aws_subnets" "publicA" {
   vpc_id = data.aws_vpc.selected.id
  
   filter {
@@ -27,7 +27,7 @@ data "aws_subnet_ids" "publicA" {
   }
 }
 
-data "aws_subnet_ids" "publicB" {
+data "aws_subnets" "publicB" {
   vpc_id = data.aws_vpc.selected.id
 
   filter {
