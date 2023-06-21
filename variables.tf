@@ -1,4 +1,7 @@
 variable "vpc_name" {
-  type = string
   description = "Enter the vpc name to select the VPC"
+}
+
+variable "region" {
+  default = "us-east-1"
 }
